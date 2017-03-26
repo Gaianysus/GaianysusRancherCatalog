@@ -1,0 +1,8 @@
+name: Traefik
+description: |
+  (Experimental) Traefik active load balancer for gaianysus
+version: v1.1.2-rancher1
+category: Load Balancing
+maintainer: "Josh Cox <josh@webhosting.coop>"
+minimum_rancher_version: v0.59.0
+projectURL: https://github.com/rawmind0/alpine-traefik
