@@ -1,0 +1,58 @@
+version: '2'
+catalog:
+  name: "gaianysus-meanshop"
+  version: "0.6.3"
+  description: "Gaianysus E-commerce powered by Meanshop"
+  uuid: gaianysus-meanshop-0
+  minimum_rancher_version: v0.51.0
+  questions:
+      - variable: "MEANSHOP_HOST"
+        description: "Hostname to use for the Gaianysus store"
+        label: "Gaianysus Store Hostname"
+        required: true
+        default: "store"
+        type: "string"
+      - variable: "MEANSHOP_DOMAIN"
+        description: "Domain to use for the Gaianysus store server"
+        label: "MEANSHOP Domain"
+        required: true
+        default: "gaianysus.com"
+        type: "string"
+      - variable: "MEANGO_DB"
+        description: "Mongo Database name to use for the Gaianysus store server"
+        label: "Mongo DB"
+        required: true
+        default: "gaiashop"
+        type: "string"
+      - variable: "MEANGO_HOST"
+        description: "Mongo Host to use for the Gaianysus store server"
+        label: "Mongo Host"
+        required: true
+        default: ""
+        type: "string"
+      - variable: "MEANGO_DEBUG"
+        description: "include debug data in stdout"
+        label: "debug"
+        required: false
+        type: "string"
+      - variable: host_label
+        label: "Host Label to Meanshop Tags"
+        description: |
+          Host label to use as Meanshop 'value' tag.
+          Example: 'gaiashop=true'
+        required: false
+        default: "private=true"
+        type: "string"
+services:
+  gaiashop-nginx:
+    scale: 1
+    health_check:
+      port: 80
+      interval: 30000
+      initializing_timeout: 360000
+      unhealthy_threshold: 9
+      strategy: none
+      healthy_threshold: 2
+      response_timeout: 9000
+  gaiashop-node:
+    scale: 1
