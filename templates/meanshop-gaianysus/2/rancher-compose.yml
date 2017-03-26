@@ -1,8 +1,8 @@
 version: '2'
 catalog:
   name: "gaianysus-meanshop"
-  version: "0.6.0"
-  description: "gaianysus E-commerce powered by Meanshop"
+  version: "0.6.1"
+  description: "Gaianysus E-commerce powered by Meanshop"
   uuid: gaianysus-meanshop-0
   minimum_rancher_version: v0.51.0
   questions:
@@ -39,12 +39,12 @@ catalog:
         label: "Host Label to Meanshop Tags"
         description: |
           Host label to use as Meanshop 'value' tag.
-          Example: 'meanshop=true'
+          Example: 'gaiashop=true'
         required: false
         default: "private=true"
         type: "string"
 services:
-  meanshop-nginx:
+  gaiashop-nginx:
     scale: 1
     health_check:
       port: 80
@@ -54,5 +54,5 @@ services:
       strategy: none
       healthy_threshold: 2
       response_timeout: 9000
-  meanshop-node:
+  gaiashop-node:
     scale: 1
