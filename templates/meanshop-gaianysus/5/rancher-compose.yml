@@ -10,7 +10,7 @@ catalog:
         description: "Hostname to use for the Gaianysus store"
         label: "Gaianysus Store Hostname"
         required: true
-        default: "store"
+        default: "shop"
         type: "string"
       - variable: "MEANSHOP_DOMAIN"
         description: "Domain to use for the Gaianysus store server"
